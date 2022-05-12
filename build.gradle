@@ -1,0 +1,24 @@
+allprojects {
+	apply plugin: 'java'
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+
+	ext {
+		defaultEncoding = 'UTF-8'
+	}
+	configure([javadoc]) {
+		options.encoding defaultEncoding
+		options.docEncoding defaultEncoding
+		options.charSet defaultEncoding
+	}
+	compileJava.options.encoding = defaultEncoding
+	compileTestJava.options.encoding = defaultEncoding
+
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	group 'ptg.rest'
+}
